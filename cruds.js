@@ -36,3 +36,31 @@ function getTotal() {
      }
 }
    
+
+// Create product
+
+let Dataprod ;
+
+if (localStorage.Product != null) {
+    Dataprod = JSON.parse(localStorage.getItem('Product'));
+}
+else {
+    Dataprod = [];
+}
+
+
+
+submit.onclick = function() {
+    let newprod = {
+        title: title.value,
+        price: price.value,
+        taxes: taxes.value,
+        ads: ads.value,
+        discount: discount.value,
+        total: total.innerHTML,
+        count: count.value,
+        category: category.value
+    }
+    Dataprod.push(newprod);
+    localStorage.setItem('Product',JSON.stringify(Dataprod));
+}
